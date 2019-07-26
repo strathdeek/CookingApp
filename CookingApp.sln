@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookingApp.Android", "MarksApp\MarksApp.Android\CookingApp.Android.csproj", "{BAD18DFD-1820-4278-9979-1AB00F4977D9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookingApp.Android", "CookingApp\CookingApp.Android\CookingApp.Android.csproj", "{BAD18DFD-1820-4278-9979-1AB00F4977D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookingApp.iOS", "MarksApp\MarksApp.iOS\CookingApp.iOS.csproj", "{86131F0A-F83E-4715-B4FD-4F0068AE42A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookingApp.iOS", "CookingApp\CookingApp.iOS\CookingApp.iOS.csproj", "{86131F0A-F83E-4715-B4FD-4F0068AE42A6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CookingApp", "MarksApp\MarksApp\CookingApp.csproj", "{342DEFB6-DC3E-41A6-BBF0-8C3AC18C72BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CookingApp", "CookingApp\CookingApp\CookingApp.csproj", "{342DEFB6-DC3E-41A6-BBF0-8C3AC18C72BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
