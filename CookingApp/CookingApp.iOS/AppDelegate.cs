@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using CookingApp;
 using Foundation;
+using ImageCircle.Forms.Plugin.iOS;
 using UIKit;
 
-namespace MarksApp.iOS
+namespace CookingApp.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
     // User Interface of the application, as well as listening (and optionally responding) to 
@@ -24,7 +25,8 @@ namespace MarksApp.iOS
         {
             global::Xamarin.Forms.Forms.SetFlags("Shell_Experimental", "Visual_Experimental", "CollectionView_Experimental", "FastRenderers_Experimental");
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+			ImageCircleRenderer.Init();
+			LoadApplication(new CookingApp.App());
 
             return base.FinishedLaunching(app, options);
         }

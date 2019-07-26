@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-using MarksApp.Models;
-using MarksApp.Views;
+using CookingApp.Models;
+using CookingApp.Views;
 
-namespace MarksApp.ViewModels
+namespace CookingApp.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MarksApp.Services
+namespace CookingApp.Services
 {
     public interface IDataStore<T>
     {

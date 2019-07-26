@@ -4,18 +4,10 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="MarksApp.Views.ContentViews.LessonTree">
+             x:Class="CookingApp.Views.ContentViews.LessonTree">
   <ContentView.Content>
-      <StackLayout>
-          <Label Text="{Binding TitleText}" />
-            <StackLayout Orientation="Horizontal">
-                <StackLayout x:Name="LeftLayout">
-                    
-                </StackLayout>
-                <StackLayout x:Name="RightLayout">
-                    
-                </StackLayout>
-            </StackLayout>
+      <StackLayout x:Name="MainStack">
+          
       </StackLayout>
   </ContentView.Content>
 </ContentView>

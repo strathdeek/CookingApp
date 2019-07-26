@@ -1,10 +1,10 @@
-﻿using MarksApp.Data;
+﻿using CookingApp.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace MarksApp.Models
+namespace CookingApp.Models
 {
     public class Lesson
     {
@@ -14,7 +14,7 @@ namespace MarksApp.Models
 
         public Difficulty Level { get; set; }
 
-        public ImageSource Image { get; set; }
+        public ImageSource ImageSource { get; set; }
 
         public int Tier { get; set; }
     }

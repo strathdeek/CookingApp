@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MarksApp.Data
+namespace CookingApp.Data
 {
     public enum Difficulty
     {

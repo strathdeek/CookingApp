@@ -1,4 +1,5 @@
-﻿using MarksApp.Models;
+﻿using CookingApp.ViewModels;
+using CookingApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,24 +9,15 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MarksApp.Views.ContentViews
+namespace CookingApp.Views.ContentViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LessonIcon : ContentView
     {
-
-        public Lesson ThisLesson { get; set; }
-
-        public ImageSource IconImageSource { get; set; }
-
-        public string LessonTitle { get; set; }
-
         public LessonIcon(Lesson lesson)
         {
-            LessonTitle = lesson.Title;
-            IconImageSource = lesson.Image ?? ImageSource.FromFile()
+            BindingContext = new LessonIconViewModel(lesson);
             InitializeComponent();
-            
         }
     }
 }

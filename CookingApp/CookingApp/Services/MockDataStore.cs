@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MarksApp.Data;
-using MarksApp.Models;
+using CookingApp.Data;
+using CookingApp.Models;
+using Xamarin.Forms;
 
-namespace MarksApp.Services
+namespace CookingApp.Services
 {
     public class MockDataStore : IDataStore<Lesson>
     {
@@ -15,10 +16,10 @@ namespace MarksApp.Services
         {
             var mockLessons = new List<Lesson>()
             {
-                new Lesson { Id = Guid.NewGuid().ToString(), Title="Chicken", Image=null, Level=Difficulty.Easy,Tier=1},
-                new Lesson { Id = Guid.NewGuid().ToString(), Title="Steak", Image=null, Level=Difficulty.Easy,Tier=2},
-                new Lesson { Id = Guid.NewGuid().ToString(), Title="Lasagna", Image=null, Level=Difficulty.Easy,Tier=3},
-                new Lesson { Id = Guid.NewGuid().ToString(), Title="Pie", Image=null, Level=Difficulty.Easy,Tier=4},
+                new Lesson { Id = Guid.NewGuid().ToString(), Title="Chicken", ImageSource=ImageSource.FromFile("DefaultIcon.jpg"), Level=Difficulty.Easy,Tier=1},
+                new Lesson { Id = Guid.NewGuid().ToString(), Title="Steak", ImageSource=ImageSource.FromFile("DefaultIcon.jpg"), Level=Difficulty.Easy,Tier=2},
+                new Lesson { Id = Guid.NewGuid().ToString(), Title="Lasagna", ImageSource=ImageSource.FromFile("DefaultIcon.jpg"), Level=Difficulty.Easy,Tier=3},
+                new Lesson { Id = Guid.NewGuid().ToString(), Title="Pie", ImageSource=ImageSource.FromFile("DefaultIcon.jpg"), Level=Difficulty.Easy,Tier=4},
             };
 
             items = new List<Lesson>();

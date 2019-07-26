@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 using Xamarin.Forms;
 
-namespace MarksApp.ViewModels
+namespace CookingApp.ViewModels
 {
     public class AboutViewModel : BaseViewModel
     {

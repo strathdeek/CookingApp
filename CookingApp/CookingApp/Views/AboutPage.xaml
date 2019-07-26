@@ -4,8 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="MarksApp.Views.AboutPage"
-             xmlns:vm="clr-namespace:MarksApp.ViewModels"
+             x:Class="CookingApp.Views.AboutPage"
+             xmlns:vm="clr-namespace:CookingApp.ViewModels"
              Title="{Binding Title}">
     
     <ContentPage.BindingContext>

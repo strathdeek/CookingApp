@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-using MarksApp.Models;
-using MarksApp.Views;
-using MarksApp.ViewModels;
-using MarksApp.Services;
-using MarksApp.Views.ContentViews;
+using CookingApp.Models;
+using CookingApp.Views;
+using CookingApp.ViewModels;
+using CookingApp.Services;
+using CookingApp.Views.ContentViews;
+using CookingApp.Data;
 
-namespace MarksApp.Views
+namespace CookingApp.Views
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
@@ -24,17 +25,14 @@ namespace MarksApp.Views
 
         public ItemsPage()
         {
-
             BindingContext = viewModel = new ItemsViewModel();
-            InitializeComponent();
             var lessons = viewModel.DataStore.GetItemsAsync().Result;
-            foreach (var item in lessons)
-            {
-                LessonLayout.Children.Add(new LessonIcon(item) { WidthRequest=150 });
-            }
+            InitializeComponent();
+            LessonLayout.Children.Add(new LessonIcon(new Lesson { Id = Guid.NewGuid().ToString(), Title = "Chicken", ImageSource = ImageSource.FromUri(new Uri("https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/egg.png")), Level = Difficulty.Easy, Tier = 1 }));
         }
 
-        
+
+
         protected override void OnAppearing()
         {
             base.OnAppearing();

@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace MarksApp.iOS
+namespace CookingApp.iOS
 {
     public class Application
     {

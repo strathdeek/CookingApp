@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 
 using Xamarin.Forms;
 
-using MarksApp.Models;
-using MarksApp.Services;
+using CookingApp.Models;
+using CookingApp.Services;
 
-namespace MarksApp.ViewModels
+namespace CookingApp.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {

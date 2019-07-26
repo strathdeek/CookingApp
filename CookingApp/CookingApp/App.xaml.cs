@@ -1,10 +1,10 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using MarksApp.Services;
-using MarksApp.Views;
+using CookingApp.Services;
+using CookingApp.Views;
 
-namespace MarksApp
+namespace CookingApp
 {
     public partial class App : Application
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace MarksApp
+namespace CookingApp
 {
     public partial class AppShell : Xamarin.Forms.Shell
     {
