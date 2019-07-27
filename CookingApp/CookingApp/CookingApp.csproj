@@ -17,6 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\EmptyClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Update="Views\ContentViews\LessonTree.xaml.cs">
       <DependentUpon>LessonTree.xaml</DependentUpon>
     </Compile>

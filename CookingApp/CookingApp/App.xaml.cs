@@ -13,7 +13,9 @@ namespace CookingApp
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            DependencyService.Register<LessonDataStore>();
+            DependencyService.Register<RecipeDataStore>();
+
             MainPage = new AppShell();
         }
 

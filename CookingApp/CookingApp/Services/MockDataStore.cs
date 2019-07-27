@@ -8,11 +8,11 @@ using Xamarin.Forms;
 
 namespace CookingApp.Services
 {
-    public class MockDataStore : IDataStore<Lesson>
+    public class LessonDataStore : IDataStore<Lesson>
     {
         List<Lesson> items;
 
-        public MockDataStore()
+        public LessonDataStore()
         {
             var mockLessons = new List<Lesson>()
             {

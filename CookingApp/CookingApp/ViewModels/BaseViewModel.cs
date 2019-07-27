@@ -12,7 +12,10 @@ namespace CookingApp.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Lesson> DataStore => DependencyService.Get<IDataStore<Lesson>>() ?? new MockDataStore();
+        public IDataStore<Lesson> RecipDataStore => DependencyService.Get<IDataStore<Lesson>>() ?? new LessonDataStore();
+        public IDataStore<Lesson> DataStore => DependencyService.Get<IDataStore<Lesson>>() ?? new RecipeDataStore();
+
+
 
         bool isBusy = false;
         public bool IsBusy
