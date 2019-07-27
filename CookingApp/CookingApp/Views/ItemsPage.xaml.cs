@@ -26,15 +26,15 @@ namespace CookingApp.Views
         public ItemsPage()
         {
             BindingContext = viewModel = new ItemsViewModel();
-            var lessons = viewModel.DataStore.GetItemsAsync().Result;
             InitializeComponent();
-            LessonLayout.Children.Add(new LessonIcon(new Lesson { Id = Guid.NewGuid().ToString(), Title = "Chicken", ImageSource = ImageSource.FromUri(new Uri("https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/egg.png")), Level = Difficulty.Easy, Tier = 1 }));
         }
 
 
 
         protected override void OnAppearing()
         {
+            var lessons = viewModel.DataStore.GetItemsAsync().Result.ToList();
+            LessonLayout.Children.Add(new LessonTree(lessons));
             base.OnAppearing();
 
         }

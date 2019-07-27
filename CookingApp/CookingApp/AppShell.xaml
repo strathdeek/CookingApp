@@ -17,7 +17,7 @@
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="Shell.ForegroundColor" Value="#c8dad3" />
-                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="#F0EBD8" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
@@ -38,6 +38,7 @@
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>
     </TabBar>
+    <ShellContent  Route="About"/>
 
     <!-- Optional Templates 
     // These may be provided inline as below or as separate classes.

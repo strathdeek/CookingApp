@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using CookingApp.Views;
 using Xamarin.Forms;
 
 namespace CookingApp
@@ -10,6 +10,7 @@ namespace CookingApp
         public AppShell()
         {
             InitializeComponent();
-        }
+            Routing.RegisterRoute("about", typeof(AboutPage));
+;        }
     }
 }

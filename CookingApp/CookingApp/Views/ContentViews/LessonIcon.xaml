@@ -7,12 +7,31 @@
              mc:Ignorable="d"
              x:Class="CookingApp.Views.ContentViews.LessonIcon">
     <ContentView.Content>
-        <StackLayout BackgroundColor="Red">
-            <controls:CircleImage Source="{Binding IconImageSource}"
-                                  WidthRequest="25"
-                                  HeightRequest="25"
-                                  />
-            <Label Text="{Binding LessonTitle}" FontSize="Medium"/>
+        <StackLayout
+            Margin=" 0,15,0,0">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding NavigateToRecipeCommand}"/>
+            </StackLayout.GestureRecognizers>
+            <Grid
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <controls:CircleImage x:Name="Image"
+                                      WidthRequest="100"
+                                      HeightRequest="100"
+                                      FillColor="{StaticResource IconBGColor}"
+                                      HorizontalOptions="Center"
+                                      VerticalOptions="Center"/>
+                <Image Source="{Binding IconImageSource}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       WidthRequest="50"
+                       HeightRequest="50"/>
+            </Grid>
+            <Label Text="{Binding LessonTitle}"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+
         </StackLayout>
     </ContentView.Content>
 </ContentView>

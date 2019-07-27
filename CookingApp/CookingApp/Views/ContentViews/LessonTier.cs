@@ -19,13 +19,15 @@ namespace CookingApp.Views.ContentViews
             {
                 HeightRequest = 1,
                 Color = Color.Black,
-                HorizontalOptions = LayoutOptions.EndAndExpand
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.Center,
+                Margin = new Thickness(5,0,0,0)
             };
 
             StackLayout headerContainer = new StackLayout
             {
                 Orientation = StackOrientation.Horizontal,
-                HorizontalOptions = LayoutOptions.CenterAndExpand
+                HorizontalOptions = LayoutOptions.FillAndExpand
             };
 
             headerContainer.Children.Add(tierHeader);
@@ -40,14 +42,45 @@ namespace CookingApp.Views.ContentViews
                 }
             };
 
+            StackLayout leftStack = new StackLayout
+            {
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                HorizontalOptions = LayoutOptions.CenterAndExpand
+            };
+            StackLayout rightStack = new StackLayout
+            {
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                HorizontalOptions = LayoutOptions.CenterAndExpand
+            };
+
+            lessonContainer.Children.Add(leftStack, 0, 0);
+            lessonContainer.Children.Add(rightStack, 1, 0);
+
             int position = 0;
+
             foreach (var lesson in lessons)
             {
-                lessonContainer.Children.Add(new LessonIcon(lesson), position, 0);
-                position = position == 0 ? 1 : 0;
+                if (position == 0)
+                {
+                    leftStack.Children.Add(new LessonIcon(lesson));
+                    position = 1;
+                }
+                else
+                {
+                    rightStack.Children.Add(new LessonIcon(lesson));
+                    position = 0;
+                }
             }
 
-            Content = new Label { Text = "Hello ContentView" };
+            StackLayout contentStack = new StackLayout
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand
+            };
+
+            contentStack.Children.Add(headerContainer);
+            contentStack.Children.Add(lessonContainer);
+
+            Content = contentStack;
         }
     }
 }

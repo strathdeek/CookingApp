@@ -16,14 +16,23 @@ namespace CookingApp.Services
         {
             var mockLessons = new List<Lesson>()
             {
-                new Lesson { Id = Guid.NewGuid().ToString(), Title="Chicken", ImageSource=ImageSource.FromFile("DefaultIcon.jpg"), Level=Difficulty.Easy,Tier=1},
-                new Lesson { Id = Guid.NewGuid().ToString(), Title="Steak", ImageSource=ImageSource.FromFile("DefaultIcon.jpg"), Level=Difficulty.Easy,Tier=2},
-                new Lesson { Id = Guid.NewGuid().ToString(), Title="Lasagna", ImageSource=ImageSource.FromFile("DefaultIcon.jpg"), Level=Difficulty.Easy,Tier=3},
-                new Lesson { Id = Guid.NewGuid().ToString(), Title="Pie", ImageSource=ImageSource.FromFile("DefaultIcon.jpg"), Level=Difficulty.Easy,Tier=4},
+                new Lesson { Id = Guid.NewGuid().ToString(), Title="Hard Boiled", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Easy,Tier=1, Category = Category.Egg},
+                new Lesson { Id = Guid.NewGuid().ToString(), Title="Soft Boiled", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Easy,Tier=1, Category = Category.Egg},
+                new Lesson { Id = Guid.NewGuid().ToString(), Title="Over Easy", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Easy,Tier=2, Category = Category.Egg},
+                new Lesson { Id = Guid.NewGuid().ToString(), Title="Poached", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Medium,Tier=3, Category = Category.Egg},
+                new Lesson { Id = Guid.NewGuid().ToString(), Title="Hollandaise Sauce", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Medium,Tier=5, Category = Category.Egg},
+                new Lesson { Id = Guid.NewGuid().ToString(), Title="Eggs Benedict", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Medium,Tier=5, Category = Category.Egg},
+                new Lesson { Id = Guid.NewGuid().ToString(), Title="Scrambled", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Easy,Tier=1,Category = Category.Egg},
+                new Lesson { Id = Guid.NewGuid().ToString(), Title="Sunny Side Up", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Easy,Tier=2,Category = Category.Egg},
+                new Lesson { Id = Guid.NewGuid().ToString(), Title="Omelette", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Easy,Tier=2,Category = Category.Egg},
+                new Lesson { Id = Guid.NewGuid().ToString(), Title="French Omelette", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Medium,Tier=3,Category = Category.Egg},
+                new Lesson { Id = Guid.NewGuid().ToString(), Title="Mayonnaise", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Medium,Tier=4,Category = Category.Egg},
+                new Lesson { Id = Guid.NewGuid().ToString(), Title="Meringue Cookies", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Medium,Tier=4,Category = Category.Egg},
+                new Lesson { Id = Guid.NewGuid().ToString(), Title="Egg Custard", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Medium,Tier=5,Category = Category.Egg},
             };
 
             items = new List<Lesson>();
-           
+
             foreach (var item in mockLessons)
             {
                 items.Add(item);

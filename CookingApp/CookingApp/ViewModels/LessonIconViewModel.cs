@@ -7,7 +7,15 @@ namespace CookingApp.ViewModels
 {
     public class LessonIconViewModel : BaseViewModel
     {
-        
+        public Lesson ThisLesson { get; set; }
+
+        Command _NavigateToRecipeCommand;
+        public Command NavigateToRecipeCommand
+        {
+            get { return _NavigateToRecipeCommand; }
+            set { SetProperty(ref _NavigateToRecipeCommand, value); }
+        }
+
         ImageSource iconImageSource;
         public ImageSource IconImageSource
         {
@@ -27,6 +35,15 @@ namespace CookingApp.ViewModels
         {
             LessonTitle = lesson.Title;
             IconImageSource = lesson.ImageSource;
+            ThisLesson = lesson;
+            NavigateToRecipeCommand = new Command(NavigateToRecipe);
+        }
+
+        public void NavigateToRecipe()
+        {
+            Console.WriteLine("Here");
+            MessagingCenter.Send<LessonIconViewModel, string>(this, "LessonClicked", ThisLesson.Id);
+            Console.WriteLine("Here");
         }
     }
 }

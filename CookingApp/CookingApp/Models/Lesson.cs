@@ -17,5 +17,7 @@ namespace CookingApp.Models
         public ImageSource ImageSource { get; set; }
 
         public int Tier { get; set; }
+
+        public Category Category { get; set; }
     }
 }

@@ -23,9 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\DefaultIcon.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Update="Views\ContentViews\LessonIcon.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -38,9 +35,6 @@
     <Folder Include="Resources\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Remove="Resources\DefaultIcon.jpg" />
-  </ItemGroup>
   <ItemGroup>
     <None Update="App.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -14,9 +14,19 @@ namespace CookingApp.Views.ContentViews
     public partial class LessonTree : ContentView
     {
         public string TierTitle { get; set; }
+        public int MinTier { get; set; }
+        public int MaxTier { get; set; }
+
         public LessonTree(List<Lesson> lessons)
         {
-            //lessons
+            InitializeComponent();
+            MinTier = lessons.Min(x => x.Tier);
+            MaxTier = lessons.Max(x => x.Tier);
+
+            for (int i = MinTier; i <= MaxTier; i++)
+            {
+                MainStack.Children.Add(new LessonTier(lessons.FindAll(x => x.Tier == i)));
+            }
         }
     }
 }
