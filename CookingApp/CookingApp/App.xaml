@@ -7,9 +7,10 @@
              x:Class="CookingApp.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="BGColor1">#FFFAEA</Color>
+            <Color x:Key="BGColor1">White</Color>
             <Color x:Key="BGColor2">Black</Color>
-            <Color x:Key="IconBGColor">#5CA4A9</Color>
+            <Color x:Key="IconBGColor">LightSkyBlue</Color>
+            <Color x:Key="HeaderColor">#f7f7f7</Color>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
