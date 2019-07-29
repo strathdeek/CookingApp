@@ -52,5 +52,10 @@ namespace CookingApp.Services
             return await Task.FromResult(true);
 
         }
+
+        public async Task<IEnumerable<Recipe>> GetRecipesForLessonAsync(string lessonId)
+        {
+            return await Task.FromResult(items.Where(x => x.LessonId == lessonId));
+        }
     }
 }

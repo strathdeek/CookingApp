@@ -12,8 +12,8 @@ namespace CookingApp.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Lesson> RecipDataStore => DependencyService.Get<IDataStore<Lesson>>() ?? new LessonDataStore();
-        public IDataStore<Lesson> DataStore => DependencyService.Get<IDataStore<Lesson>>() ?? new RecipeDataStore();
+        public IDataStore<Lesson> LessonDataStore => DependencyService.Get<IDataStore<Lesson>>() ?? new LessonDataStore();
+        public IDataStore<Recipe> RecipeDataStore => DependencyService.Get<IDataStore<Recipe>>() ?? new RecipeDataStore();
 
 
 

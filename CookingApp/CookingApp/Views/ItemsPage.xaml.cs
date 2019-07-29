@@ -26,17 +26,21 @@ namespace CookingApp.Views
         public ItemsPage()
         {
             BindingContext = viewModel = new ItemsViewModel();
+            viewModel.UpdateUI += HandleUIUpdate;
             InitializeComponent();
+            viewModel.FetchLessons();
         }
-
 
 
         protected override void OnAppearing()
         {
-            var lessons = viewModel.DataStore.GetItemsAsync().Result.ToList();
-            LessonLayout.Children.Add(new LessonTree(lessons));
             base.OnAppearing();
-
         }
+
+        public void HandleUIUpdate(object sender, EventArgs e)
+        {
+            LessonLayout.Children.Add(new LessonTree(viewModel.Lessons));
+        }
+
     }
 }

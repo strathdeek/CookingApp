@@ -7,6 +7,8 @@ using Xamarin.Forms;
 
 using CookingApp.Models;
 using CookingApp.Views;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CookingApp.ViewModels
 {
@@ -18,12 +20,22 @@ namespace CookingApp.ViewModels
             get { return _ItemId; }
             set { SetProperty(ref _ItemId, value); }
         }
+
+        public event EventHandler UpdateUI;
+
+        public List<Lesson> Lessons { get; set; }
+
         public ItemsViewModel()
         {
             MessagingCenter.Subscribe<LessonIconViewModel,string>(this,"LessonClicked",(sender,arg)=>ItemId=arg);
-            Shell.Current.GoToAsync("about");
         }
 
-        
+        public void FetchLessons()
+        {
+            Lessons = LessonDataStore.GetItemsAsync().Result.ToList();
+            UpdateUI.Invoke(null, new EventArgs());
+        }
+
+
     }
 }
