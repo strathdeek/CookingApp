@@ -2,8 +2,12 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="CookingApp.Views.LessonDetailPage">
+    x:Class="CookingApp.Views.LessonDetailPage"
+    Shell.NavBarIsVisible="false"
+    >
     <ContentPage.Content>
-        
+        <StackLayout>
+            <Label x:Name="textbox" Text="PlaceHolder" FontSize="Title" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

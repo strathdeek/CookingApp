@@ -27,6 +27,7 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -116,9 +117,6 @@
     <BundleResource Include="Resources\tab_about.png" />
     <BundleResource Include="Resources\tab_about%402x.png" />
     <BundleResource Include="Resources\tab_about%403x.png" />
-    <BundleResource Include="Resources\tab_feed.png" />
-    <BundleResource Include="Resources\tab_feed%402x.png" />
-    <BundleResource Include="Resources\tab_feed%403x.png" />
     <BundleResource Include="Resources\xamarin_logo.png" />
     <BundleResource Include="Resources\xamarin_logo%402x.png" />
     <BundleResource Include="Resources\xamarin_logo%403x.png" />
@@ -127,6 +125,17 @@
     <BundleResource Include="Resources\profile_icon.png">
       <Optimize>false</Optimize>
     </BundleResource>
+    <BundleResource Include="Resources\tab_recipe.png" />
+    <BundleResource Include="Resources\tab_recipe%402x.png" />
+    <BundleResource Include="Resources\tab_recipe%403x.png" />
+    <BundleResource Include="Resources\tab_feed.png" />
+    <BundleResource Include="Resources\tab_feed%403x.png" />
+    <BundleResource Include="Resources\tab_feed%402x.png" />
+    <BundleResource Include="Resources\tab_account.png" />
+    <BundleResource Include="Resources\tab_account%403x.png" />
+    <BundleResource Include="Resources\tab_account%402x.png" />
+    <BundleResource Include="Resources\bread.png" />
+    <BundleResource Include="Resources\eggs.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

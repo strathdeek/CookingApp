@@ -16,19 +16,33 @@ namespace CookingApp.Services
         {
             var mockLessons = new List<Lesson>()
             {
-                new Lesson { Id = Guid.NewGuid().ToString(), Title="Hard Boiled", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Easy,Tier=1, Category = Category.Egg},
-                new Lesson { Id = Guid.NewGuid().ToString(), Title="Soft Boiled", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Easy,Tier=1, Category = Category.Egg},
-                new Lesson { Id = Guid.NewGuid().ToString(), Title="Over Easy", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Easy,Tier=2, Category = Category.Egg},
-                new Lesson { Id = Guid.NewGuid().ToString(), Title="Poached", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Medium,Tier=3, Category = Category.Egg},
-                new Lesson { Id = Guid.NewGuid().ToString(), Title="Hollandaise Sauce", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Medium,Tier=5, Category = Category.Egg},
-                new Lesson { Id = Guid.NewGuid().ToString(), Title="Eggs Benedict", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Medium,Tier=5, Category = Category.Egg},
-                new Lesson { Id = Guid.NewGuid().ToString(), Title="Scrambled", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Easy,Tier=1,Category = Category.Egg},
-                new Lesson { Id = Guid.NewGuid().ToString(), Title="Sunny Side Up", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Easy,Tier=2,Category = Category.Egg},
-                new Lesson { Id = Guid.NewGuid().ToString(), Title="Omelette", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Easy,Tier=2,Category = Category.Egg},
-                new Lesson { Id = Guid.NewGuid().ToString(), Title="French Omelette", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Medium,Tier=3,Category = Category.Egg},
-                new Lesson { Id = Guid.NewGuid().ToString(), Title="Mayonnaise", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Medium,Tier=4,Category = Category.Egg},
-                new Lesson { Id = Guid.NewGuid().ToString(), Title="Meringue Cookies", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Medium,Tier=4,Category = Category.Egg},
-                new Lesson { Id = Guid.NewGuid().ToString(), Title="Egg Custard", ImageSource=ImageSource.FromFile("cooking.png"), Level=Difficulty.Medium,Tier=5,Category = Category.Egg},
+                new Lesson { Id = 1.ToString(), Title="Hard Boiled", ImageSource=ImageSource.FromFile("eggs.png"), Level=Difficulty.Easy,Tier=1, Category = Category.Egg},
+                new Lesson { Id = 2.ToString(), Title="Soft Boiled", ImageSource=ImageSource.FromFile("eggs.png"), Level=Difficulty.Easy,Tier=1, Category = Category.Egg},
+                new Lesson { Id = 3.ToString(), Title="Over Easy", ImageSource=ImageSource.FromFile("eggs.png"), Level=Difficulty.Easy,Tier=2, Category = Category.Egg},
+                new Lesson { Id = 4.ToString(), Title="Poached", ImageSource=ImageSource.FromFile("eggs.png"), Level=Difficulty.Medium,Tier=3, Category = Category.Egg},
+                new Lesson { Id = 5.ToString(), Title="Hollandaise Sauce", ImageSource=ImageSource.FromFile("eggs.png"), Level=Difficulty.Medium,Tier=5, Category = Category.Egg},
+                new Lesson { Id = 6.ToString(), Title="Eggs Benedict", ImageSource=ImageSource.FromFile("eggs.png"), Level=Difficulty.Medium,Tier=5, Category = Category.Egg},
+                new Lesson { Id = 7.ToString(), Title="Scrambled", ImageSource=ImageSource.FromFile("eggs.png"), Level=Difficulty.Easy,Tier=1,Category = Category.Egg},
+                new Lesson { Id = 8.ToString(), Title="Sunny Side Up", ImageSource=ImageSource.FromFile("eggs.png"), Level=Difficulty.Easy,Tier=2,Category = Category.Egg},
+                new Lesson { Id = 9.ToString(), Title="Omelette", ImageSource=ImageSource.FromFile("eggs.png"), Level=Difficulty.Easy,Tier=2,Category = Category.Egg},
+                new Lesson { Id = 10.ToString(), Title="French Omelette", ImageSource=ImageSource.FromFile("eggs.png"), Level=Difficulty.Medium,Tier=3,Category = Category.Egg},
+                new Lesson { Id = 11.ToString(), Title="Mayonnaise", ImageSource=ImageSource.FromFile("eggs.png"), Level=Difficulty.Medium,Tier=4,Category = Category.Egg},
+                new Lesson { Id = 12.ToString(), Title="Meringue Cookies", ImageSource=ImageSource.FromFile("eggs.png"), Level=Difficulty.Medium,Tier=4,Category = Category.Egg},
+                new Lesson { Id = 13.ToString(), Title="Egg Custard", ImageSource=ImageSource.FromFile("eggs.png"), Level=Difficulty.Medium,Tier=5,Category = Category.Egg},
+
+                new Lesson { Id = 14.ToString(), Title="Sandwich Bread", ImageSource=ImageSource.FromFile("bread.png"), Level=Difficulty.Easy,Tier=1, Category = Category.Bread},
+                new Lesson { Id = 15.ToString(), Title="Marble Rye", ImageSource=ImageSource.FromFile("bread.png"), Level=Difficulty.Easy,Tier=1, Category = Category.Bread},
+                new Lesson { Id = 16.ToString(), Title="Oat", ImageSource=ImageSource.FromFile("bread.png"), Level=Difficulty.Easy,Tier=2, Category = Category.Bread},
+                new Lesson { Id = 17.ToString(), Title="Banana Bread", ImageSource=ImageSource.FromFile("bread.png"), Level=Difficulty.Medium,Tier=3, Category = Category.Bread},
+                new Lesson { Id = 18.ToString(), Title="Croissant", ImageSource=ImageSource.FromFile("bread.png"), Level=Difficulty.Medium,Tier=4, Category = Category.Bread},
+                new Lesson { Id = 19.ToString(), Title="Garlic Bread", ImageSource=ImageSource.FromFile("bread.png"), Level=Difficulty.Medium,Tier=5, Category = Category.Bread},
+                new Lesson { Id = 20.ToString(), Title="French Toast", ImageSource=ImageSource.FromFile("bread.png"), Level=Difficulty.Easy,Tier=1,Category = Category.Bread},
+                new Lesson { Id = 21.ToString(), Title="Baguette", ImageSource=ImageSource.FromFile("bread.png"), Level=Difficulty.Easy,Tier=2,Category = Category.Bread},
+                new Lesson { Id = 22.ToString(), Title="Cinnamon Bun", ImageSource=ImageSource.FromFile("bread.png"), Level=Difficulty.Easy,Tier=1,Category = Category.Bread},
+                new Lesson { Id = 23.ToString(), Title="Pretzel", ImageSource=ImageSource.FromFile("bread.png"), Level=Difficulty.Medium,Tier=1,Category = Category.Bread},
+                new Lesson { Id = 24.ToString(), Title="Challah", ImageSource=ImageSource.FromFile("bread.png"), Level=Difficulty.Medium,Tier=3,Category = Category.Bread},
+                new Lesson { Id = 25.ToString(), Title="Crackers", ImageSource=ImageSource.FromFile("bread.png"), Level=Difficulty.Medium,Tier=4,Category = Category.Bread},
+                new Lesson { Id = 26.ToString(), Title="Sourdough", ImageSource=ImageSource.FromFile("bread.png"), Level=Difficulty.Medium,Tier=5,Category = Category.Bread},
             };
 
             items = new List<Lesson>();
@@ -71,6 +85,12 @@ namespace CookingApp.Services
         public async Task<IEnumerable<Lesson>> GetItemsAsync(bool forceRefresh = false)
         {
             return await Task.FromResult(items);
+        }
+
+        public async Task<IEnumerable<Lesson>> GetItemsByCategoryAsync(string category)
+        {
+            var res = items.FindAll(x => x.Category.ToString().Equals(category));
+            return await Task.FromResult(res);
         }
     }
 }

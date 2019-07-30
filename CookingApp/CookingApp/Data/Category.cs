@@ -6,7 +6,8 @@ namespace CookingApp.Data
 {
     public enum Category
     {
-        Egg
+        Egg,
+        Bread
     }
 }
 

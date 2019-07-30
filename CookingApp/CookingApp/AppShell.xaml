@@ -22,7 +22,7 @@
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="Black"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="White"/>
             </Style>
             <Style TargetType="ShellItem" BasedOn="{StaticResource BaseStyle}" />
@@ -34,11 +34,13 @@
         <Tab Title="Lessons" Icon="tab_feed.png">
             <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
         </Tab>
-        <Tab Title="About" Icon="tab_about.png">
+        <Tab Title="Recipe" Icon="tab_recipe.png" >
+            <ShellContent ContentTemplate="{DataTemplate local:LessonDetailPage}" />
+        </Tab>
+        <Tab Title="Profile" Icon="tab_account.png">
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>
     </TabBar>
-    <ShellContent  Route="About"/>
 
     <!-- Optional Templates 
     // These may be provided inline as below or as separate classes.

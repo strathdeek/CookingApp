@@ -28,7 +28,6 @@ namespace CookingApp.Views
             BindingContext = viewModel = new ItemsViewModel();
             viewModel.UpdateUI += HandleUIUpdate;
             InitializeComponent();
-            viewModel.FetchLessons();
         }
 
 
@@ -39,8 +38,13 @@ namespace CookingApp.Views
 
         public void HandleUIUpdate(object sender, EventArgs e)
         {
+            LessonLayout.Children.Clear();
             LessonLayout.Children.Add(new LessonTree(viewModel.Lessons));
         }
 
+        void Focus_Lesson_Picker(object sender, EventArgs args)
+        {
+            picker.Focus();
+        }
     }
 }

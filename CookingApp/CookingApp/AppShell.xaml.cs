@@ -10,7 +10,7 @@ namespace CookingApp
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute("about", typeof(AboutPage));
+            Routing.RegisterRoute("lesson", typeof(LessonDetailPage));
 ;        }
     }
 }

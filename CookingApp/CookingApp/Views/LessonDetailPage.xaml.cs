@@ -16,6 +16,7 @@ namespace CookingApp.Views
         {
             BindingContext = viewModel = new LessonDetailViewModel(LessonId);
             InitializeComponent();
+            textbox.Text = LessonId ?? "Select a Lesson on the Main Tab!";
         }
     }
 }

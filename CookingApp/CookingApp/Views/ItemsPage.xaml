@@ -15,43 +15,61 @@
               Margin="0,-100,0,0"
               Padding="0,110,0,20">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="60" />
             </Grid.RowDefinitions>
-            <Image Source="cooking.png"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   WidthRequest="50"
-                   HeightRequest="50"
-                   Grid.Column="0"
-                   Grid.Row="0"/>
-           
-            <Label Text="Eggs"
+            <Image
+                x:Name="pickerIcon"
+                Source="cooking.png"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="50"
+                HeightRequest="50"
+                Grid.Column="0"
+                Grid.Row="0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Focus_Lesson_Picker" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Picker
+                x:Name="picker"
+                Grid.Column="1"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                FontSize="Large"
+                ItemsSource="{Binding CategoryList}"
+                IsVisible="false"
+                SelectedItem="{Binding SelectedCategory}" />
+            <Label Text="{Binding SelectedCategory}"
                    Grid.Column="1"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
-                   FontSize="Large"/>
-            <Image Source="profile_icon.png"
+                   FontSize="Large">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Focus_Lesson_Picker" />
+                </Label.GestureRecognizers>
+            </Label>
+            <Image Source="tab_account.png"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    Grid.Column="2"
                    Grid.Row="0"
                    WidthRequest="50"
                    HeightRequest="50"
-                   BackgroundColor="Transparent"/>
+                   BackgroundColor="Transparent" />
         </Grid>
         <BoxView HorizontalOptions="FillAndExpand"
                  HeightRequest="1"
                  Color="black"
-                 Opacity=".4"/>
+                 Opacity=".4" />
         <ScrollView>
             <StackLayout x:Name="LessonLayout"
                          Padding="10"
                          HorizontalOptions="FillAndExpand"
                          VerticalOptions="FillAndExpand">
-                <Label Text="{Binding ItemId}"
+                <Label Text="Select A Lesson Category!"
                        HorizontalOptions="CenterAndExpand"
-                       VerticalOptions="StartAndExpand"
-                       FontSize="Large" />
+                       VerticalOptions="CenterAndExpand"
+                       FontSize="Title" />
             </StackLayout>
         </ScrollView>
     </StackLayout>

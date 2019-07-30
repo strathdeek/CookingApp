@@ -20,7 +20,7 @@ namespace CookingApp.ViewModels
 
         public void FetchRecipes()
         {
-            Recipes = (RecipeDataStore as Services.RecipeDataStore).GetRecipesForLessonAsync(LessonId).Result.ToList();
+            Recipes = (RecipeDataStore as Services.RecipeDataStore).GetItemsAsync().Result.ToList();
 
         }
     }
