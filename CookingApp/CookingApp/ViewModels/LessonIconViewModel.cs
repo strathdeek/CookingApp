@@ -31,11 +31,19 @@ namespace CookingApp.ViewModels
             set { SetProperty(ref _LessonTitle, value); }
         }
 
+        Color _IconBGColor;
+        public Color IconBGColor
+        {
+            get { return _IconBGColor; }
+            set { SetProperty(ref _IconBGColor, value); }
+        }
+
         public LessonIconViewModel(Lesson lesson)
         {
             LessonTitle = lesson.Title;
             IconImageSource = lesson.ImageSource;
             ThisLesson = lesson;
+            IconBGColor = lesson.Completed ? Color.LightSkyBlue : Color.FromHex("#f7f7f7");
             NavigateToRecipeCommand = new Command(NavigateToRecipe);
         }
 

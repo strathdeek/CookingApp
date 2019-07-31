@@ -15,6 +15,7 @@ namespace CookingApp
 
             DependencyService.Register<LessonDataStore>();
             DependencyService.Register<RecipeDataStore>();
+            DependencyService.Register<Profile>();
 
             MainPage = new AppShell();
         }

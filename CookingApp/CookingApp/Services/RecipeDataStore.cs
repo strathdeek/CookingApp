@@ -14,7 +14,10 @@ namespace CookingApp.Services
         {
             var mockRecipes = new List<Recipe>
             {
-                new Recipe{ Title="Bon Appetit", Id = Guid.NewGuid().ToString(), LessonId = "1", Rating=(float)4.1, RecipeUrl= "https://www.bonappetit.com/recipes/slideshow/egg-recipes"}
+                new Recipe{ Title="Bon Appetit", Id = Guid.NewGuid().ToString(), LessonId = "1", Rating=(float)4.1, RecipeUrl= "https://www.bonappetit.com/recipes/slideshow/egg-recipes"},
+                new Recipe{ Title="Country Living", Id = Guid.NewGuid().ToString(), LessonId = "1", Rating=(float)3.5, RecipeUrl= "https://www.countryliving.com/food-drinks/g13/cookbook-eggs-0407/"},
+                new Recipe{ Title="Good Housekeeping", Id = Guid.NewGuid().ToString(), LessonId = "1", Rating=(float)2.9, RecipeUrl= "https://www.goodhousekeeping.com/food-recipes/easy/g428/easy-egg-recipes/"},
+                new Recipe{ Title="Food and Wine", Id = Guid.NewGuid().ToString(), LessonId = "1", Rating=(float)5.0, RecipeUrl= "https://www.foodandwine.com/slideshows/eggs"},
             };
 
             items = new List<Recipe>();

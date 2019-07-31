@@ -16,6 +16,7 @@ namespace CookingApp.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
+        public string DefaultMessage { get; set; } = "Select a Lesson Tree!";
         public string SelectedLessonId { get; set; }
         string _ItemId = "Nothing";
         public string ItemId
@@ -50,8 +51,14 @@ namespace CookingApp.ViewModels
         {
             MessagingCenter.Subscribe<LessonIconViewModel, string>(this, "LessonClicked", NavigateToLesson);
             MessagingCenter.Subscribe<LessonDetailPage>(this, "RequestLessonId", SendLessonId);
-
+            MessagingCenter.Subscribe<LessonDetailViewModel>(this, "RefreshFeed", RefreshLessons);
             CategoryList = Enum.GetNames(typeof(Category)).ToList();
+            SelectedCategory = DefaultMessage;
+        }
+
+        private void RefreshLessons(object obj)
+        {
+            FetchLessons();
         }
 
         private void SendLessonId(object obj)
@@ -61,6 +68,8 @@ namespace CookingApp.ViewModels
 
         public void FetchLessons()
         {
+            if (SelectedCategory == DefaultMessage)
+                return;
             Lessons = (LessonDataStore as LessonDataStore).GetItemsByCategoryAsync(SelectedCategory).Result.ToList();
             UpdateUI.Invoke(null, new EventArgs());
         }

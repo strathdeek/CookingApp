@@ -22,14 +22,20 @@ namespace CookingApp.Views
     public partial class ItemsPage : ContentPage
     {
         ItemsViewModel viewModel;
-
+        public Command Focus_Lesson_Picker_Command { get; set; }
         public ItemsPage()
         {
             BindingContext = viewModel = new ItemsViewModel();
+            Focus_Lesson_Picker_Command = new Command(FocusLessonPickerButton);
             viewModel.UpdateUI += HandleUIUpdate;
             InitializeComponent();
         }
 
+        private void FocusLessonPickerButton(object obj)
+        {
+            picker.Focus();
+            buttonPicker.IsVisible = false;
+        }
 
         protected override void OnAppearing()
         {

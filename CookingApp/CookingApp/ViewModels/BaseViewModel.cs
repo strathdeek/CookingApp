@@ -14,7 +14,7 @@ namespace CookingApp.ViewModels
     {
         public IDataStore<Lesson> LessonDataStore => DependencyService.Get<IDataStore<Lesson>>() ?? new LessonDataStore();
         public IDataStore<Recipe> RecipeDataStore => DependencyService.Get<IDataStore<Recipe>>() ?? new RecipeDataStore();
-
+        public Profile UserProfile => DependencyService.Get<Profile>() ?? new Profile();
 
 
         bool isBusy = false;

@@ -9,6 +9,13 @@ namespace CookingApp.ViewModels
 {
     public class LessonDetailViewModel : BaseViewModel
     {
+        Recipe _SelectedRecipe;
+        public Recipe SelectedRecipe
+        {
+            get { return _SelectedRecipe; }
+            set { SetProperty(ref _SelectedRecipe, value); }
+        }
+
         string _LessonId;
         public string LessonId
         {
@@ -82,20 +89,23 @@ namespace CookingApp.ViewModels
             set { SetProperty(ref _RecipeWebViewSource, value); }
         }
 
-        Command<string> _RecipeCompletedCommand;
-        public Command<string> RecipeCompletedCommand
+        Command _RecipeCompletedCommand;
+        public Command RecipeCompletedCommand
         {
             get { return _RecipeCompletedCommand; }
             set { SetProperty(ref _RecipeCompletedCommand, value); }
         }
 
+
         public LessonDetailViewModel()
         {
             NavigateToFeedCommand = new Command(NavigateToFeed);
             HandleRecipeTappedCommand = new Command<string>(HandleRecipeTapped);
-            RecipeCompletedCommand = new Command<string>(RecipeCompleted);
+            RecipeCompletedCommand = new Command(RecipeCompleted);
             IsDetailViewVisible = true;
             IsWebViewVisible = false;
+            LessonTitle = "Select A Lesson!";
+            Difficulty = "N/A";
             MessagingCenter.Subscribe<ItemsViewModel, string>(this, "SendLessonId", SetLesson);
         }
 
@@ -103,6 +113,7 @@ namespace CookingApp.ViewModels
 
         public void SetLesson(object sender, string arg)
         {
+            if (string.IsNullOrEmpty(arg)) return;
             ThisLesson = LessonDataStore.GetItemAsync(arg).Result;
             LessonTitle = ThisLesson.Title;
             Difficulty = ThisLesson.Level.ToString();
@@ -111,7 +122,7 @@ namespace CookingApp.ViewModels
 
         public void FetchRecipes(string id)
         {
-            Recipes = (RecipeDataStore as Services.RecipeDataStore).GetItemsAsync().Result.ToList();
+            Recipes = (RecipeDataStore as Services.RecipeDataStore).GetItemsAsync().Result.OrderByDescending(x => x.Rating).ToList();
         }
 
         public void NavigateToFeed(object sender)
@@ -121,14 +132,20 @@ namespace CookingApp.ViewModels
 
         private void HandleRecipeTapped(string obj)
         {
+            SelectedRecipe = RecipeDataStore.GetItemAsync(obj).Result;
             IsDetailViewVisible = false;
             IsWebViewVisible = true;
-            RecipeWebViewSource = obj;
+            RecipeWebViewSource = SelectedRecipe.RecipeUrl;
         }
 
-        private void RecipeCompleted(string id)
+        private void RecipeCompleted()
         {
-
+            ThisLesson.Completed = true;
+            LessonDataStore.UpdateItemAsync(ThisLesson);
+            MessagingCenter.Send(this, "RefreshFeed");
+            IsDetailViewVisible = true;
+            IsWebViewVisible = false;
+            Shell.Current.GoToAsync("//feed/tree");
         }
 
     }

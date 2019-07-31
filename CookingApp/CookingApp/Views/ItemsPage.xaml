@@ -10,7 +10,9 @@
              x:Name="BrowseItemsPage"
              Shell.NavBarIsVisible="false"
              BackgroundColor="{StaticResource BGColor1}">
-    <StackLayout Spacing="0">
+    <StackLayout Spacing="0"
+                 VerticalOptions="FillAndExpand"
+                 HorizontalOptions="FillAndExpand">
         <Grid BackgroundColor="{StaticResource HeaderColor}"
               Margin="0,-100,0,0"
               Padding="0,110,0,20">
@@ -30,20 +32,14 @@
                     <TapGestureRecognizer Tapped="Focus_Lesson_Picker" />
                 </Image.GestureRecognizers>
             </Image>
-            <Picker
-                x:Name="picker"
-                Grid.Column="1"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                FontSize="Large"
-                ItemsSource="{Binding CategoryList}"
-                IsVisible="false"
-                SelectedItem="{Binding SelectedCategory}" />
+
             <Label Text="{Binding SelectedCategory}"
                    Grid.Column="1"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
-                   FontSize="Large">
+                   FontSize="Large"
+                   HorizontalTextAlignment="Center"
+                   FontAttributes="Bold">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Focus_Lesson_Picker" />
                 </Label.GestureRecognizers>
@@ -61,17 +57,34 @@
                  HeightRequest="1"
                  Color="black"
                  Opacity=".4" />
-        <ScrollView>
+        <ScrollView VerticalOptions="FillAndExpand">
             <StackLayout x:Name="LessonLayout"
                          Padding="10"
                          HorizontalOptions="FillAndExpand"
                          VerticalOptions="FillAndExpand">
-                <Label Text="Select A Lesson Category!"
-                       HorizontalOptions="CenterAndExpand"
-                       VerticalOptions="CenterAndExpand"
-                       FontSize="Title" />
+                    <Button
+                        x:Name="buttonPicker"
+                        BackgroundColor="SteelBlue"
+                        TextColor="White"
+                        FontSize="Large"
+                        Text="Load Skill Tree"
+                        HorizontalOptions="Center"
+                        VerticalOptions="CenterAndExpand"
+                        Padding="7,0"
+                        Command="{Binding Source={x:Reference BrowseItemsPage}, Path=Focus_Lesson_Picker_Command}"/>
+
+                
             </StackLayout>
         </ScrollView>
+        <Picker
+            x:Name="picker"
+            Grid.Column="1"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            FontSize="Large"
+            ItemsSource="{Binding CategoryList}"
+            IsVisible="false"
+            SelectedItem="{Binding SelectedCategory}" />
     </StackLayout>
 
 

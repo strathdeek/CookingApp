@@ -37,7 +37,7 @@
                     FontSize="Large"
                     WidthRequest="250"
                     HorizontalTextAlignment="Center"
-                    FontAttributes="Bold"/>
+                    FontAttributes="Bold" />
                 <Image Source="tab_account.png"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
@@ -75,14 +75,16 @@
                          Color="black"
                          Opacity=".4" />
                 <ListView ItemsSource="{Binding Recipes}"
-                          VerticalOptions="StartAndExpand"
+                          VerticalOptions="Start"
                           HorizontalOptions="Fill"
                           Margin="0,20,0,0"
                           SelectionMode="None">
                     <ListView.Header>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="Recipes"
-                                   FontSize="Title" />
+                                   FontSize="Title"
+                                   FontAttributes="Bold"
+                                   Margin="0,0,0,20" />
                         </StackLayout>
                     </ListView.Header>
                     <ListView.ItemTemplate>
@@ -91,12 +93,15 @@
                                 <StackLayout Orientation="Horizontal"
                                              HeightRequest="100">
                                     <StackLayout.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding Source={x:Reference DetailPage}, Path=BindingContext.HandleRecipeTappedCommand}" CommandParameter="{Binding RecipeUrl}"/>
+                                        <TapGestureRecognizer Command="{Binding Source={x:Reference DetailPage}, Path=BindingContext.HandleRecipeTappedCommand}"
+                                                              CommandParameter="{Binding Id}" />
                                     </StackLayout.GestureRecognizers>
                                     <Label Text="{Binding Title}"
                                            FontSize="Large"
                                            HorizontalOptions="StartAndExpand"
-                                           VerticalOptions="Center" />
+                                           VerticalOptions="Center"
+                                           TextColor="Blue"
+                                           TextDecorations="Underline"/>
                                     <Label Text="Rating:"
                                            FontSize="Large"
                                            HorizontalOptions="End"
@@ -108,16 +113,34 @@
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
+                        
                     </ListView.ItemTemplate>
+                    <ListView.Footer>
+                        <StackLayout>
+
+                        </StackLayout>
+                    </ListView.Footer>
                 </ListView>
             </StackLayout>
             <Grid VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand"
+                  IsVisible="{Binding IsWebViewVisible}">
+                <WebView VerticalOptions="FillAndExpand"
                          HorizontalOptions="FillAndExpand"
-                         IsVisible="{Binding IsWebViewVisible}">
-                <WebView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Source="{Binding RecipeWebViewSource}"/>
-                <StackLayout HorizontalOptions="End" VerticalOptions="End" Margin="5">
-                    <Frame BackgroundColor="LightGreen" Opacity="0.95">
-                        <Label HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large" FontAttributes="Bold" Text="Recipe Completed"/>
+                         Source="{Binding RecipeWebViewSource}" />
+                <StackLayout HorizontalOptions="End"
+                             VerticalOptions="End"
+                             Margin="5">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RecipeCompletedCommand}" />
+                    </StackLayout.GestureRecognizers>
+                    <Frame BackgroundColor="LightGreen"
+                           Opacity="0.95">
+                        <Label HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               FontSize="Large"
+                               FontAttributes="Bold"
+                               Text="Recipe Completed" />
                     </Frame>
                 </StackLayout>
             </Grid>

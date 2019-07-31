@@ -19,5 +19,7 @@ namespace CookingApp.Models
         public int Tier { get; set; }
 
         public Category Category { get; set; }
+
+        public bool Completed { get; set; }
     }
 }
