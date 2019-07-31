@@ -5,18 +5,26 @@ using Xamarin.Forms;
 
 namespace CookingApp.Views
 {
-    [QueryProperty("LessonId", "lessonId")]
     public partial class LessonDetailPage : ContentPage
     {
-        public string LessonId { get; set; }
 
         LessonDetailViewModel viewModel;
 
         public LessonDetailPage()
         {
-            BindingContext = viewModel = new LessonDetailViewModel(LessonId);
+            BindingContext = viewModel = new LessonDetailViewModel();
             InitializeComponent();
-            textbox.Text = LessonId ?? "Select a Lesson on the Main Tab!";
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            RequestSelectedLesson();
+        }
+
+        private void RequestSelectedLesson()
+        {
+            MessagingCenter.Send(this, "RequestLessonId");
         }
     }
 }

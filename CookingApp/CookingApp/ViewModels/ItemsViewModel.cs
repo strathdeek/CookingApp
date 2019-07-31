@@ -16,6 +16,7 @@ namespace CookingApp.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
+        public string SelectedLessonId { get; set; }
         string _ItemId = "Nothing";
         public string ItemId
         {
@@ -48,7 +49,14 @@ namespace CookingApp.ViewModels
         public ItemsViewModel()
         {
             MessagingCenter.Subscribe<LessonIconViewModel, string>(this, "LessonClicked", NavigateToLesson);
+            MessagingCenter.Subscribe<LessonDetailPage>(this, "RequestLessonId", SendLessonId);
+
             CategoryList = Enum.GetNames(typeof(Category)).ToList();
+        }
+
+        private void SendLessonId(object obj)
+        {
+            MessagingCenter.Send(this, "SendLessonId", SelectedLessonId);
         }
 
         public void FetchLessons()
@@ -59,7 +67,8 @@ namespace CookingApp.ViewModels
 
         public void NavigateToLesson(object sender, string arg)
         {
-            Shell.Current.GoToAsync("lesson?lessonId={arg}");
+            SelectedLessonId = arg.ToString();
+            Shell.Current.GoToAsync("//recipe/lesson");
         }
 
 

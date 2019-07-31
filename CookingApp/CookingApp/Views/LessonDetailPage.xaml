@@ -2,12 +2,125 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:contentviews="clr-namespace:CookingApp.Views.ContentViews"
     x:Class="CookingApp.Views.LessonDetailPage"
-    Shell.NavBarIsVisible="false"
-    >
+    x:Name="DetailPage"
+    Shell.NavBarIsVisible="False">
     <ContentPage.Content>
-        <StackLayout>
-            <Label x:Name="textbox" Text="PlaceHolder" FontSize="Title" HorizontalOptions="Center" VerticalOptions="Center"/>
+        <StackLayout
+            VerticalOptions="FillAndExpand"
+            Spacing="0">
+            <Grid BackgroundColor="{StaticResource HeaderColor}"
+                  Margin="0,-100,0,0"
+                  Padding="0,110,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                </Grid.RowDefinitions>
+                <Image Source="tab_feed.png"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       WidthRequest="50"
+                       HeightRequest="50"
+                       BackgroundColor="Transparent">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToFeedCommand}" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label
+                    x:Name="LessonTitle"
+                    Text="{Binding LessonTitle}"
+                    Grid.Column="1"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    FontSize="Large"
+                    WidthRequest="250"
+                    HorizontalTextAlignment="Center"
+                    FontAttributes="Bold"/>
+                <Image Source="tab_account.png"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Grid.Column="2"
+                       Grid.Row="0"
+                       WidthRequest="50"
+                       HeightRequest="50"
+                       BackgroundColor="Transparent" />
+            </Grid>
+            <BoxView HorizontalOptions="FillAndExpand"
+                     HeightRequest="1"
+                     Color="black"
+                     Opacity=".4" />
+            <StackLayout VerticalOptions="FillAndExpand"
+                         HorizontalOptions="FillAndExpand"
+                         Padding="15"
+                         IsVisible="{Binding IsDetailViewVisible}">
+
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand">
+                    <Label
+                        Margin="0,10"
+                        Text="Difficulty:"
+                        FontSize="Title"
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="Center" />
+                    <Label Text="{Binding Difficulty}"
+                           HorizontalOptions="End"
+                           Margin="0,0,30,0"
+                           VerticalOptions="Center"
+                           FontSize="Title" />
+                </StackLayout>
+                <BoxView HorizontalOptions="FillAndExpand"
+                         HeightRequest="1"
+                         Color="black"
+                         Opacity=".4" />
+                <ListView ItemsSource="{Binding Recipes}"
+                          VerticalOptions="StartAndExpand"
+                          HorizontalOptions="Fill"
+                          Margin="0,20,0,0"
+                          SelectionMode="None">
+                    <ListView.Header>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Recipes"
+                                   FontSize="Title" />
+                        </StackLayout>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal"
+                                             HeightRequest="100">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={x:Reference DetailPage}, Path=BindingContext.HandleRecipeTappedCommand}" CommandParameter="{Binding RecipeUrl}"/>
+                                    </StackLayout.GestureRecognizers>
+                                    <Label Text="{Binding Title}"
+                                           FontSize="Large"
+                                           HorizontalOptions="StartAndExpand"
+                                           VerticalOptions="Center" />
+                                    <Label Text="Rating:"
+                                           FontSize="Large"
+                                           HorizontalOptions="End"
+                                           VerticalOptions="Center" />
+                                    <Label Text="{Binding Rating}"
+                                           FontSize="Large"
+                                           HorizontalOptions="End"
+                                           VerticalOptions="Center" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <Grid VerticalOptions="FillAndExpand"
+                         HorizontalOptions="FillAndExpand"
+                         IsVisible="{Binding IsWebViewVisible}">
+                <WebView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Source="{Binding RecipeWebViewSource}"/>
+                <StackLayout HorizontalOptions="End" VerticalOptions="End" Margin="5">
+                    <Frame BackgroundColor="LightGreen" Opacity="0.95">
+                        <Label HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large" FontAttributes="Bold" Text="Recipe Completed"/>
+                    </Frame>
+                </StackLayout>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
