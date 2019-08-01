@@ -37,8 +37,8 @@
         <Tab Title="Recipe" Icon="tab_recipe.png" Route="recipe" >
             <ShellContent ContentTemplate="{DataTemplate local:LessonDetailPage}" Route="lesson"/>
         </Tab>
-        <Tab Title="Profile" Icon="tab_account.png">
-            <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
+        <Tab Title="Profile" Icon="tab_account.png" Route="account">
+            <ShellContent ContentTemplate="{DataTemplate local:ProfilePage}" Route="profile"/>
         </Tab>
     </TabBar>
 

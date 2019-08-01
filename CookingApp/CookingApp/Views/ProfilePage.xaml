@@ -2,8 +2,156 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="CookingApp.Views.ProfilePage">
+    x:Class="CookingApp.Views.ProfilePage"
+    Shell.NavBarIsVisible="False"
+    x:Name="root">
     <ContentPage.Content>
-        
+        <StackLayout
+            VerticalOptions="FillAndExpand"
+            Spacing="0">
+            <Grid BackgroundColor="{StaticResource HeaderColor}"
+                  Margin="0,-100,0,0"
+                  Padding="0,110,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                </Grid.RowDefinitions>
+                <Image Source="tab_feed.png"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       WidthRequest="50"
+                       HeightRequest="50"
+                       BackgroundColor="Transparent">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToFeedCommand}" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label
+                    x:Name="LessonTitle"
+                    Text="{Binding UserName}"
+                    Grid.Column="1"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    FontSize="Large"
+                    WidthRequest="250"
+                    HorizontalTextAlignment="Center"
+                    FontAttributes="Bold" />
+                <Image Source="tab_account.png"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Grid.Column="2"
+                       Grid.Row="0"
+                       WidthRequest="50"
+                       HeightRequest="50"
+                       BackgroundColor="Transparent" />
+            </Grid>
+            <BoxView HorizontalOptions="FillAndExpand"
+                     HeightRequest="1"
+                     Color="black"
+                     Opacity=".4" />
+            <StackLayout HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand"
+                         Padding="10"
+                         Margin="0,30"
+                         Spacing="20"
+                         IsVisible="{Binding IsGuestUser}">
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand">
+                    <Label Text="Email"
+                           FontSize="Large"
+                           FontAttributes="Bold" />
+                    <Entry Text="{Binding EntryEmail}"
+                           HorizontalOptions="EndAndExpand"
+                           HeightRequest="30"
+                           WidthRequest="250"
+                           Margin="20,0"
+                           IsTextPredictionEnabled="False"
+                           IsSpellCheckEnabled="False" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand">
+                    <Label Text="Password"
+                           FontSize="Large"
+                           FontAttributes="Bold" />
+                    <Entry Text="{Binding EntryPassword}"
+                           HorizontalOptions="EndAndExpand"
+                           WidthRequest="250"
+                           HeightRequest="30"
+                           Margin="20,0"
+                           IsPassword="True"
+                           IsTextPredictionEnabled="False"
+                           IsSpellCheckEnabled="False" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand">
+                    <Label Text="Name"
+                           FontSize="Large"
+                           FontAttributes="Bold" />
+                    <Entry Text="{Binding EntryName}"
+                           HorizontalOptions="EndAndExpand"
+                           WidthRequest="250"
+                           HeightRequest="30"
+                           Margin="20,0"
+                           IsTextPredictionEnabled="False"
+                           IsSpellCheckEnabled="False" />
+                </StackLayout>
+                <Button
+                    BackgroundColor="SteelBlue"
+                    TextColor="White"
+                    FontSize="Large"
+                    Text="Sign Up"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Start"
+                    Margin="20,20"
+                    Padding="7,0"
+                    Command="{Binding SignUpCommand}" />
+
+            </StackLayout>
+            <StackLayout
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                Padding="30"
+                IsVisible="{Binding DisplayProfileScreen}">
+                <Label Text="{Binding Email}"
+                       FontSize="Header"
+                       HorizontalOptions="CenterAndExpand" />
+
+                <ListView ItemsSource="{Binding Lessons}"
+                          VerticalOptions="Start"
+                          HorizontalOptions="Fill"
+                          Margin="0,20,0,0"
+                          SelectionMode="None">
+                    <ListView.Header>
+                        <StackLayout>
+                            <Label Text="{Binding Source={x:Reference root}, Path=viewModel.ProgressDisplayString}"
+                                   FontSize="Title"
+                                   HorizontalOptions="StartAndExpand"
+                                   Margin="0,40,0,0"
+                                   FontAttributes="Bold"/>
+                            <ProgressBar Progress="{Binding Source={x:Reference root}, Path=viewModel.LessonProgress}"
+                                         HorizontalOptions="FillAndExpand"
+                                         HeightRequest="20" />
+                        </StackLayout>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Title}">
+
+                            </TextCell>
+                        </DataTemplate>
+
+                    </ListView.ItemTemplate>
+                    <ListView.Footer>
+                        <StackLayout>
+
+                        </StackLayout>
+                    </ListView.Footer>
+                </ListView>
+
+
+
+            </StackLayout>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

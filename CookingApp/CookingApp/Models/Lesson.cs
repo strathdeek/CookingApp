@@ -21,5 +21,8 @@ namespace CookingApp.Models
         public Category Category { get; set; }
 
         public bool Completed { get; set; }
+
+        public string ExampleUrl { get; set; }
+
     }
 }

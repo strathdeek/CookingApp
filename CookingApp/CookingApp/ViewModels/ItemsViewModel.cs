@@ -43,6 +43,14 @@ namespace CookingApp.ViewModels
 
             }
         }
+
+        Command _NavigateToProfileCommand;
+        public Command NavigateToProfileCommand
+        {
+            get { return _NavigateToProfileCommand; }
+            set { SetProperty(ref _NavigateToProfileCommand, value); }
+        }
+
         public event EventHandler UpdateUI;
 
         public List<Lesson> Lessons { get; set; }
@@ -52,6 +60,7 @@ namespace CookingApp.ViewModels
             MessagingCenter.Subscribe<LessonIconViewModel, string>(this, "LessonClicked", NavigateToLesson);
             MessagingCenter.Subscribe<LessonDetailPage>(this, "RequestLessonId", SendLessonId);
             MessagingCenter.Subscribe<LessonDetailViewModel>(this, "RefreshFeed", RefreshLessons);
+            NavigateToProfileCommand = new Command(NavigateToProfile);
             CategoryList = Enum.GetNames(typeof(Category)).ToList();
             SelectedCategory = DefaultMessage;
         }
@@ -80,6 +89,10 @@ namespace CookingApp.ViewModels
             Shell.Current.GoToAsync("//recipe/lesson");
         }
 
+        public void NavigateToProfile(object sender)
+        {
+            Shell.Current.GoToAsync("//account/profile");
+        }
 
     }
 }

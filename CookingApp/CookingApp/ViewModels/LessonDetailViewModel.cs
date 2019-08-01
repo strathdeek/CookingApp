@@ -96,12 +96,26 @@ namespace CookingApp.ViewModels
             set { SetProperty(ref _RecipeCompletedCommand, value); }
         }
 
+        Command _NavigateToProfileCommand;
+        public Command NavigateToProfileCommand
+        {
+            get { return _NavigateToProfileCommand; }
+            set { SetProperty(ref _NavigateToProfileCommand, value); }
+        }
+
+        string _ExamplePictureUrl;
+        public string ExamplePictureUrl
+        {
+            get { return _ExamplePictureUrl; }
+            set { SetProperty(ref _ExamplePictureUrl, value); }
+        }
 
         public LessonDetailViewModel()
         {
             NavigateToFeedCommand = new Command(NavigateToFeed);
             HandleRecipeTappedCommand = new Command<string>(HandleRecipeTapped);
             RecipeCompletedCommand = new Command(RecipeCompleted);
+            NavigateToProfileCommand = new Command(NavigateToProfile);
             IsDetailViewVisible = true;
             IsWebViewVisible = false;
             LessonTitle = "Select A Lesson!";
@@ -117,6 +131,7 @@ namespace CookingApp.ViewModels
             ThisLesson = LessonDataStore.GetItemAsync(arg).Result;
             LessonTitle = ThisLesson.Title;
             Difficulty = ThisLesson.Level.ToString();
+            ExamplePictureUrl = ThisLesson.ExampleUrl;
             FetchRecipes(LessonId);
         }
 
@@ -128,6 +143,11 @@ namespace CookingApp.ViewModels
         public void NavigateToFeed(object sender)
         {
             Shell.Current.GoToAsync("//feed/tree");
+        }
+
+        public void NavigateToProfile(object sender)
+        {
+            Shell.Current.GoToAsync("//account/profile");
         }
 
         private void HandleRecipeTapped(string obj)

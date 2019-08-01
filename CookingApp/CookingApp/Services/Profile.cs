@@ -9,6 +9,7 @@ namespace CookingApp.Services
             Name = "Guest User";
             Email = string.Empty;
             Password = string.Empty;
+            IsGuestUser = true;
         }
 
         public string Id { get; set; }
@@ -18,6 +19,8 @@ namespace CookingApp.Services
         public string Email { get; set; }
 
         public string Password { get; set; }
+
+        public bool IsGuestUser { get; set; }
 
     }
 }
