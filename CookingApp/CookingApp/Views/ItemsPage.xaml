@@ -32,7 +32,16 @@
                     <TapGestureRecognizer Tapped="Focus_Lesson_Picker" />
                 </Image.GestureRecognizers>
             </Image>
-
+            <Picker
+                x:Name="picker"
+                Grid.Column="1"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Margin="0,-200,0,0"
+                FontSize="Large"
+                ItemsSource="{Binding CategoryList}"
+                IsVisible="false"
+                SelectedItem="{Binding SelectedCategory}" />
             <Label Text="{Binding SelectedCategory}"
                    Grid.Column="1"
                    HorizontalOptions="Center"
@@ -66,29 +75,20 @@
                          Padding="10"
                          HorizontalOptions="FillAndExpand"
                          VerticalOptions="FillAndExpand">
-                    <Button
-                        x:Name="buttonPicker"
-                        BackgroundColor="SteelBlue"
-                        TextColor="White"
-                        FontSize="Large"
-                        Text="Load Skill Tree"
-                        HorizontalOptions="Center"
-                        VerticalOptions="CenterAndExpand"
-                        Padding="7,0"
-                        Command="{Binding Source={x:Reference BrowseItemsPage}, Path=Focus_Lesson_Picker_Command}"/>
+                <Button
+                    x:Name="buttonPicker"
+                    BackgroundColor="SteelBlue"
+                    TextColor="White"
+                    FontSize="Large"
+                    Text="Load Skill Tree"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    Padding="7,0"
+                    Command="{Binding Source={x:Reference BrowseItemsPage}, Path=Focus_Lesson_Picker_Command}" />
 
-                
+
             </StackLayout>
         </ScrollView>
-        <Picker
-            x:Name="picker"
-            Grid.Column="1"
-            HorizontalOptions="Center"
-            VerticalOptions="Center"
-            FontSize="Large"
-            ItemsSource="{Binding CategoryList}"
-            IsVisible="false"
-            SelectedItem="{Binding SelectedCategory}" />
     </StackLayout>
 
 
